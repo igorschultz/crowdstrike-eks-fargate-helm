@@ -40,7 +40,7 @@ The Falcon Container Sensor image is stored in the CrowdStrike private registry 
 
 > **Note**: reference the [pull script](https://github.com/CrowdStrike/falcon-scripts/tree/main/bash/containers/falcon-container-sensor-pull) page for more usage information.
 
-For AWS_REGION set our cluster AWS region (i.e us-east-1, us-west-2) and for APP_ARCH specify the sensor platform to retrieve based on your application, e.g., x86_64, aarch64
+Set the AWS_REGION as your cluster AWS region (i.e us-east-1, us-west-2) and for APP_ARCH specify the sensor platform to retrieve based on your application, e.g., x86_64, aarch64
 
 - Example:
 
@@ -75,7 +75,7 @@ Now that we have the image on our local machine, we need to tag it and push it i
 
 - Find the image ```registry.crowdstrike.com/falcon-container/us-1/release/falcon-sensor``` **(cloud may vary)**. Next, tag that image for ECR:
     ```
-    docker image tag registry.crowdstrike.com/falcon-container/us-1/release/falcon-sensor:7.27.0-6602.container.Release.US-1 $ECR_REPO:$FALCON_IMAGE_TAG
+    docker tag $LATESTSENSOR $ECR_REPO:$FALCON_IMAGE_TAG
     ```
 - Finally, we'll push that image into our ECR repository with:
 
